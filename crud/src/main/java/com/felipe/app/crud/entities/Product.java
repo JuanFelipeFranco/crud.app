@@ -16,7 +16,7 @@ public class Product {
     @Min(500)
     @NotNull
     private Integer price;
-    @NotEmpty
+    @NotBlank //no valida caracteres de espacio y nulos
     private String description;
 
     public Long getId() {
