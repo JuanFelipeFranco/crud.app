@@ -1,6 +1,6 @@
 package com.felipe.app.crud.controllers;
 
-import com.felipe.app.crud.ProductValidation;
+//import com.felipe.app.crud.ProductValidation;
 import com.felipe.app.crud.entities.Product;
 import com.felipe.app.crud.services.ProductService;
 import jakarta.validation.Valid;
@@ -21,8 +21,8 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @Autowired
-    private ProductValidation productValidation;
+//    @Autowired
+//    private ProductValidation productValidation;
     @GetMapping
     public List<Product> list() {
         return service.findAll();
@@ -39,7 +39,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody Product product, BindingResult result) {
-        productValidation.validate(product,result);
+//        productValidation.validate(product,result);
         if (result.hasFieldErrors()) {
             return validation(result);
         }
@@ -48,7 +48,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@Valid @RequestBody Product product, BindingResult result, @PathVariable Long id) {
-        productValidation.validate(product,result);
+//        productValidation.validate(product,result);
         if (result.hasFieldErrors()) {
             return validation(result);
         }

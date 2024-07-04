@@ -1,5 +1,6 @@
 package com.felipe.app.crud.entities;
 
+import com.felipe.app.crud.validation.IsRequired;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -10,13 +11,15 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "{NotEmpty.product.name}")
+//    @NotEmpty(message = "{NotEmpty.product.name}")
+    @IsRequired(message = "{IsRequired.product.name}")
     @Size(min = 3, max=20)
     private String name;
     @Min(value = 500,message = "{Min.product.price}")
     @NotNull(message = "{NotNull.product.price}")
     private Integer price;
-    @NotBlank(message = "{NotBlank.product.description}") //no valida caracteres de espacio y nulos
+//    @NotBlank(message = "{NotBlank.product.description}") //no valida caracteres de espacio y nulos
+    @IsRequired
     private String description;
 
     public Long getId() {
