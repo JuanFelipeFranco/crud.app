@@ -54,8 +54,6 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Product> productOptional = service.delete(id);
@@ -66,6 +64,7 @@ public class ProductController {
     }
 
     private ResponseEntity<?> validation(BindingResult result) {
+        //name, description, price son los campos que estamos validando, por eso el map y el errors.
         Map<String, String> errors = new HashMap<>();
 
         result.getFieldErrors().forEach(err -> {
